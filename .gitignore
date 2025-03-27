@@ -1,3 +1,6 @@
 /.env
 /data
-/GWDBDownload
+# /GWDBDownload
+# /US_2023_epa_tri_txt
+/notes
+/txt_data

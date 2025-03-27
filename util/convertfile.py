@@ -19,7 +19,7 @@ def txt_to_csv(txt_file, csv_file, delimiter=None):
     txt_file = os.path.expanduser(txt_file)
     csv_file = os.path.expanduser(csv_file)
 
-    with open(txt_file, 'r', encoding='utf-8') as file:
+    with open(txt_file, 'r', encoding='cp1252') as file: # utf-8, unicode_escape
         lines = file.readlines()
 
     # Try to auto-detect delimiter if not provided
@@ -33,6 +33,10 @@ def txt_to_csv(txt_file, csv_file, delimiter=None):
             delimiter = ' '
         elif '|' in sample_line:
             delimiter = '|'
+        elif '  ' in sample_line: # The space is a tab
+            delimiter = '   '
+        elif '. ' in sample_line:
+            delimiter = '. '
         else:
             raise ValueError("Unable to detect delimiter")
 

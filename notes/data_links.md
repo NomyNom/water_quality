@@ -12,3 +12,10 @@
 
 ### EPA TRI Program
 * https://www.epa.gov/toxics-release-inventory-tri-program/tri-basic-data-files-calendar-years-1987-present
+
+### Surface Water Monitoring Data
+* https://www.h-gac.com/clean-rivers-program/data/surface-water-monitoring-data 
+
+* PDF Data Dictionary:\
+https://www.h-gac.com/getmedia/1c8428a2-7245-47a2-aac4-84f1ae6dc6d0/Data-Field-Descriptions-and-Use
+
