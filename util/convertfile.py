@@ -11,7 +11,7 @@ def txt_to_csv(txt_file, csv_file, delimiter=None):
         txt_file (str): Path to the input text file.
         csv_file (str): Path to the output CSV file.
         delimiter (str): The delimiter used in the TXT file (comma, space, tab, etc.).
-                        If None, the script will try to detect it automatically.
+        If None, the script will try to detect it automatically.
     """
 
     # pass
@@ -51,6 +51,38 @@ def txt_to_csv(txt_file, csv_file, delimiter=None):
 # txt_file_path = "~/Documents/UH/hon4350/water_quality/GWDBDownload/GWDBDownload_data/WaterQualityMinor.txt"  
 # csv_file_path = "~/Documents/UH/hon4350/water_quality/data/WaterQualityMinor_v1.csv" 
 # txt_to_csv(txt_file_path, csv_file_path)
+
+def xslx_to_csv(xlsx_file, csv_file, sheet_name=0):
+    """
+    Convert an Excel XLSX file to CSV format.
+
+    Parameters:
+        xlsx_file (str): Path to the input Excel file.
+        csv_file (str): Path to the output CSV file.
+        sheet_name (str or int): Name or index of the sheet to convert. Default is the first sheet.
+    """
+
+    # Expand ~ to home directory
+    xlsx_file = os.path.expanduser(xlsx_file)
+    csv_file = os.path.expanduser(csv_file)
+
+    # Read the Excel file
+    try:
+        df = pd.read_excel(xlsx_file, sheet_name=sheet_name)
+    except Exception as e:
+        print(f"Error reading Excel file: {e}")
+        return
+
+    # Save as CSV
+    try:
+        df.to_csv(csv_file, index=False)
+        print(f"Conversion completed! CSV file saved as: {csv_file}")
+    except Exception as e:
+        print(f"Error writing CSV file: {e}")
+
+# xlsx_file_path = "~/Documents/UH/hon4350/water_quality/somefile.xlsx"
+# csv_file_path = "~/Documents/UH/hon4350/water_quality/somefile_converted.csv"
+# xlsx_to_csv(xlsx_file_path, csv_file_path)
 
 
 def copy_file_to_destination(source, destination):

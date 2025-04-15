@@ -4,3 +4,6 @@
 # /US_2023_epa_tri_txt
 /notes
 /txt_data
+/api.py
+/__pycache__
+/util
